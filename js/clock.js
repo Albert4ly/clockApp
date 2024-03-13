@@ -3,8 +3,6 @@ const changeClockDiv = document.querySelector(".changeClockMode");
 
 class Clock {
 	constructor() {
-		// this.hour = date.getHours;
-
 		this.init();
 		this.changeClock();
 	}
@@ -15,7 +13,6 @@ class Clock {
 
 	changeClock() {
 		btn.addEventListener("click", (e) => {
-
 			changeClockDiv.classList.toggle("changeClockMode--analog");
 
 			if (changeClockDiv.classList.contains("changeClockMode--analog")) {
@@ -40,13 +37,34 @@ class Clock {
 
 	digitTemplateModifier() {
 		const change = document.querySelector(".changeClockMode");
+		const el = document.querySelector("h2");
 		const template = document.querySelector("#digitClock");
 		const clone = template.content.cloneNode(true);
 
-		const title = clone.querySelector("h2");
-		title.innerText = "isOk2";
+		const digitClock = clone.querySelector(".digitClock");
 
-		change.append(clone);
+		setInterval(() => {
+			let date = new Date();
+
+			let hour = date.getHours();
+			let minute = date.getMinutes();
+			let second = date.getSeconds();
+
+			if (hour < 10) {
+				hour = "0" + date.getHours();
+			}
+			if (minute < 10) {
+				minute = "0" + date.getMinutes();
+			}
+			if (second < 10) {
+				second = "0" + date.getSeconds();
+			}
+
+			digitClock.innerText =
+				hour + ":" + minute + ":" + second;
+		}, 1000);
+
+		change.replaceChild(clone, el);
 	}
 }
 
