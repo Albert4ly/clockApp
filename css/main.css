@@ -1,4 +1,69 @@
 :root {
-   box-sizing: border-box;
+	box-sizing: border-box;
+
+	/* sizes */
+
+	--clockCnt-height: 100vh;
+
+	--clockCnt__clock-width: 25%;
+	--clockCnt__clock-height: 80vh;
+	--clockCnt__clock-marginTop: 4%;
 }
 
+.clockCnt {
+	background-color: blue;
+	height: var(--clockCnt-height);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.clockCnt__clock {
+	background-color: green;
+	width: var(--clockCnt__clock-width);
+	height: var(--clockCnt__clock-height);
+	margin-top: var(--clockCnt__clock-marginTop);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.changeClockMode {
+	background-color: purple;
+	width: 80%;
+	margin-top: 4%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+#analogClockCnt {
+	position: relative;
+}
+
+.analogClock {
+	background-color: yellow;
+	width: 80%;
+	height: 35vh;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.analogClock span {
+	position: absolute;
+	transform: rotate(calc(30deg * var(--i)));
+	inset: 12px;
+	text-align: center;
+}
+
+.analogClock::before {
+	content: "";
+	position: absolute;
+	width: 1%;
+	height: 1%;
+	background-color: aliceblue;
+}

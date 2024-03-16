@@ -26,11 +26,11 @@ class Clock {
 
 	analogTemplateModifier() {
 		const change = document.querySelector(".changeClockMode");
-		const template = document.querySelector("#analogClock");
+		const template = document.querySelector("#analogClockCnt");
 		const clone = template.content.cloneNode(true);
 
-		const title = clone.querySelector("h2");
-		title.innerText = "isOk";
+		// const title = clone.querySelector("h2");
+		// title.innerText = "isOk";
 
 		change.append(clone);
 	}
@@ -38,7 +38,7 @@ class Clock {
 	digitTemplateModifier() {
 		const change = document.querySelector(".changeClockMode");
 		const el = document.querySelector("h2");
-		const template = document.querySelector("#digitClock");
+		const template = document.querySelector("#digitClockCnt");
 		const clone = template.content.cloneNode(true);
 
 		const digitClock = clone.querySelector(".digitClock");
