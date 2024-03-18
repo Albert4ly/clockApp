@@ -37,7 +37,7 @@ class Clock {
 
 	digitTemplateModifier() {
 		const change = document.querySelector(".changeClockMode");
-		const el = document.querySelector("h2");
+		const el = document.querySelector(".analogClock");
 		const template = document.querySelector("#digitClockCnt");
 		const clone = template.content.cloneNode(true);
 

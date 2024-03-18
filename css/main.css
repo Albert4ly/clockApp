@@ -8,33 +8,48 @@
 	--clockCnt__clock-width: 25%;
 	--clockCnt__clock-height: 80vh;
 	--clockCnt__clock-marginTop: 4%;
+
+	--changeClockMode-width: 80%;
+	--changeClockMode-marginTop: 4%;
+
+	--analogClock-width: 80%;
+	--analogClock-height: 35vh;
+	--analogClock-borderRadius: 50%;
+	--analogClock-before-width: 2%;
+	--analogClock-before-height: 2%;
+
+	/* colors */
+
+	--clockCnt-bg-color: #ffc8dd;
+
+	--clockCnt__clock-bg-color: #ffafcc;
+
+	--analogClock-border-color: #ffc8dd;
+}
+
+.clockCnt,
+.clockCnt__clock,
+.changeClockMode {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .clockCnt {
-	background-color: blue;
+	background-color: var(--clockCnt-bg-color);
 	height: var(--clockCnt-height);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 }
 
 .clockCnt__clock {
-	background-color: green;
+	background-color: var(--clockCnt__clock-bg-color);
 	width: var(--clockCnt__clock-width);
 	height: var(--clockCnt__clock-height);
 	margin-top: var(--clockCnt__clock-marginTop);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 }
 
 .changeClockMode {
-	background-color: purple;
-	width: 80%;
-	margin-top: 4%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	width: var(--changeClockMode-width);
+	margin-top: var(--changeClockMode-marginTop);
 	position: relative;
 }
 
@@ -43,11 +58,11 @@
 }
 
 .analogClock {
-	background-color: yellow;
-	width: 80%;
-	height: 35vh;
-	border-radius: 50%;
-	position: relative;
+	width: var(--analogClock-width);
+	height: var(--analogClock-height);
+	border: 2px solid var(--analogClock-border-color);
+	border-radius: var(--analogClock-borderRadius);
+	/* position: relative; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -60,10 +75,41 @@
 	text-align: center;
 }
 
+.analogClock span b {
+	transform: rotate(calc(-30deg * var(--i)));
+	display: inline-block;
+}
+
 .analogClock::before {
+	background-color: aliceblue;
 	content: "";
 	position: absolute;
-	width: 1%;
-	height: 1%;
-	background-color: aliceblue;
+	width: var(--analogClock-before-width);
+	height: var(--analogClock-before-height);
+	border-radius: 50%;
+}
+
+.arrowHr i {
+	position: absolute;
+	width: 4px;
+	height: 70px;
+	background-color: aqua;
+}
+
+.arrowMin {
+	position: absolute;
+	width: 30%;
+	height: 0.5vh;
+	background-color: aquamarine;
+}
+
+.arrowSec {
+	position: absolute;
+	width: 40%;
+	height: 0.2vh;
+	background-color: brown;
+}
+
+.digitClock {
+	font-size: 3rem;
 }
