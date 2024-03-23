@@ -89,24 +89,46 @@
 	border-radius: 50%;
 }
 
-.arrowHr i {
+.arrowHr {
 	position: absolute;
-	width: 4px;
-	height: 70px;
-	background-color: aqua;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 }
 
 .arrowMin {
 	position: absolute;
-	width: 30%;
-	height: 0.5vh;
-	background-color: aquamarine;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 }
 
 .arrowSec {
 	position: absolute;
-	width: 40%;
-	height: 0.2vh;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	background-color: brown;
+}
+
+.arrowHr i {
+	position: absolute;
+	width: 4px;
+	height: 37px;
+	background-color: aqua;
+}
+
+.arrowMin i {
+	position: absolute;
+	width: 2px;
+	height: 67px;
+	background-color: aquamarine;
+}
+
+.arrowSec i {
+	position: absolute;
+	width: 1px;
+	height: 93px;
 	background-color: brown;
 }
 

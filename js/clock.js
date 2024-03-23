@@ -27,12 +27,36 @@ class Clock {
 	analogTemplateModifier() {
 		const change = document.querySelector(".changeClockMode");
 		const template = document.querySelector("#analogClockCnt");
+		const el = document.querySelector(".digitClockCnt");
 		const clone = template.content.cloneNode(true);
 
-		// const title = clone.querySelector("h2");
-		// title.innerText = "isOk";
+		let hr = clone.querySelector(".arrowHr");
+		let mi = clone.querySelector(".arrowMin");
+		let se = clone.querySelector(".arrowSec");
 
-		change.append(clone);
+		setInterval(() => {
+			let date = new Date();
+
+			let hour = date.getHours();
+			let min = date.getMinutes();
+			let sec = date.getSeconds();
+
+			let hrRotation = 30 * hour + min / 2;
+			let minRotation = 6 * min;
+			let secRotation = 6 * sec;
+
+			hr.style.transform = `rotate(${hrRotation}deg)`;
+			mi.style.transform = `rotate(${minRotation}deg)`;
+			se.style.transform = `rotate(${secRotation}deg)`;
+		}, 1000);
+
+		if (!el) {
+			change.append(clone);
+		}
+
+		if (el) {
+			change.replaceChild(clone, el);
+		}
 	}
 
 	digitTemplateModifier() {
@@ -43,7 +67,7 @@ class Clock {
 
 		const digitClock = clone.querySelector(".digitClock");
 
-		setInterval(() => {
+		const digitInter = setInterval(() => {
 			let date = new Date();
 
 			let hour = date.getHours();
@@ -60,8 +84,7 @@ class Clock {
 				second = "0" + date.getSeconds();
 			}
 
-			digitClock.innerText =
-				hour + ":" + minute + ":" + second;
+			digitClock.innerText = hour + ":" + minute + ":" + second;
 		}, 1000);
 
 		change.replaceChild(clone, el);
