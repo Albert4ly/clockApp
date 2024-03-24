@@ -38,6 +38,7 @@
 .clockCnt {
 	background-color: var(--clockCnt-bg-color);
 	height: var(--clockCnt-height);
+	position: relative;
 }
 
 .clockCnt__clock {
@@ -45,6 +46,7 @@
 	width: var(--clockCnt__clock-width);
 	height: var(--clockCnt__clock-height);
 	margin-top: var(--clockCnt__clock-marginTop);
+	position: absolute;
 }
 
 .changeClockMode {
