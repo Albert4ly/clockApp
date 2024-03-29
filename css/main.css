@@ -4,12 +4,13 @@
 	/* sizes */
 
 	--clockCnt-height: 100vh;
+	--clockCnt-width: 100%;
 
 	--clockCnt__clock-width: 25%;
 	--clockCnt__clock-height: 80vh;
 	--clockCnt__clock-marginTop: 4%;
 
-	--changeClockMode-width: 80%;
+	--changeClockMode-width: 290px;
 	--changeClockMode-marginTop: 4%;
 
 	--analogClock-width: 80%;
@@ -36,9 +37,11 @@
 }
 
 .clockCnt {
+	box-sizing: content-box;
 	background-color: var(--clockCnt-bg-color);
 	height: var(--clockCnt-height);
-	position: relative;
+	position: fixed;
+	width: var(--clockCnt-width);
 }
 
 .clockCnt__clock {
@@ -50,9 +53,10 @@
 }
 
 .changeClockMode {
-	width: var(--changeClockMode-width);
+	/* width: var(--changeClockMode-width); */
 	margin-top: var(--changeClockMode-marginTop);
 	position: relative;
+	transform: scale(var(--changeClockMode-width));
 }
 
 #analogClockCnt {

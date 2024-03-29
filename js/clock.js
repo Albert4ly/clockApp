@@ -5,6 +5,8 @@ class Clock {
 	constructor() {
 		this.init();
 		this.changeClock();
+
+		this.handleResizeClock(changeClockDiv);
 	}
 
 	init() {
@@ -88,6 +90,18 @@ class Clock {
 		}, 1000);
 
 		change.replaceChild(clone, el);
+	}
+
+	handleResizeClock(changeClockDiv) {
+		const maxSize =
+			window.innerWidth > window.innerHeight
+				? window.innerHeight
+				: window.innerWidth;
+		let g = changeClockDiv.style.getPropertyValue(
+			"--changeClockMode-width"
+		);
+		let scale = maxSize > 800 ? 800 / g : maxSize / g;
+		changeClockDiv.style.setProperty(g, scale);
 	}
 }
 
