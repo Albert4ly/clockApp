@@ -1,10 +1,69 @@
 const btn = document.querySelector(".clockCnt__btn");
 const changeClockDiv = document.querySelector(".changeClockMode");
+const clockCnt = document.querySelector(".clockCnt");
+const clockCntClock = document.querySelector(".clockCnt__clock");
 
 class Clock {
 	constructor() {
+		this.windowProperty = {
+			cursorX: 0,
+			cursorY: 0,
+			isDraggable: false,
+			left: 0,
+			top: 0,
+			transformOffset: 0,
+		};
+
 		this.init();
 		this.changeClock();
+		window.addEventListener(
+			"mouseDown",
+			(event) => console.log(event)
+			// this.handleMouseDown(event);
+		);
+		window.addEventListener(
+			"mouseUp",
+			(event) => (this.windowProperty.isDraggable = false)
+		);
+		window.addEventListener(
+			"mouseDown",
+			(event) => (this.windowProperty.isDraggable = false)
+		);
+		window.addEventListener("mouseDown", (event) =>
+			this.draggClockWindow(event)
+		);
+	}
+
+	handleMouseDown(event) {
+		const { top, left, width } = this.clockElement.getBoundingClientRect();
+
+		this.windowProperty = {
+			cursorX: event.clientX,
+			cursorY: event.clientY,
+			isDraggable: true,
+			left,
+			top,
+			transformOffset: width / 2,
+		};
+	}
+
+	draggClockWindow(event) {
+		if (!this.windowProperty.isDraggable) {
+			return;
+		}
+
+		this.clockElement.style.left = `${
+			event.clientX -
+			this.windowProperty.cursorX +
+			this.windowProperty.left +
+			this.windowProperty.transformOffset
+		}px `;
+		this.clockElement.style.top = `${
+			event.clientY -
+			this.windowProperty.cursorY +
+			this.windowProperty.top +
+			this.windowProperty.transformOffset
+		}px `;
 	}
 
 	init() {

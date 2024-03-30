@@ -27,7 +27,7 @@
 	--analogClock-border-color: #ffc8dd;
 }
 
-.clockCnt,
+/* .clockCnt, */
 .clockCnt__clock,
 .changeClockMode {
 	display: flex;
@@ -45,6 +45,9 @@
 	background-color: var(--clockCnt__clock-bg-color);
 	width: var(--clockCnt__clock-width);
 	height: var(--clockCnt__clock-height);
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
 	margin-top: var(--clockCnt__clock-marginTop);
 	position: absolute;
 }
